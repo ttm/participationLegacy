@@ -12,6 +12,7 @@ Idealized facilites include:
    - Synthesis of audiovisual artifacts to ease observation, probing and exploitation.
    - Translation of participatory data to RDF.
    - HTTP utilities, such as bootstrapping participatory ontologies or an access to resource recommendation routines.
+   - Typology of participants, networks, textual content.
 
 Public data, such as provided by the Gmane database or donated profiles from private networks (e.g. Facebook), or gathered by Twitter, can be incorporated as RDF in the Social Graph.
 
