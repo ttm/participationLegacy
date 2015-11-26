@@ -38,7 +38,7 @@ def triplificaCaixaMagica(dbname,username,aname="CMData",donated_by="Caixa Mági
         tid=tr[0]
         if tr[-2]:
             ind=P.rdf.IC([tg],P.rdf.ns.cm.DontMind,tid)
-            if tr[2]==3:
+            if tr[2] == 3:
                 tid2=tr[20] # TTM
                 ind2=P.rdf.IC([tg],P.rdf.ns.cm.Problem,tid2)
                 P.rdf.link_([tg],imsg,msg,[P.rdf.ns.cm.problem],[ind2])
