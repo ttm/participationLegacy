@@ -13,3 +13,4 @@ __all__=["triplification"]
 #    AATriplification=AATriplification
 #    OCDTriplification=OCDTriplification
 #    ParticipaTriplification=ParticipaTriplification
+from . import caixaMagicaTriplification
