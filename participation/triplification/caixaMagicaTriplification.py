@@ -36,7 +36,13 @@ def triplificaCaixaMagica(dbname,username,aname="CMData",donated_by="Caixa Mági
                            ])
     for tr in trans:
         tid=tr[0]
-        if tr[2]==1: # problema
+        if tr[-2]:
+            ind=P.rdf.IC([tg],P.rdf.ns.cm.DontMind,tid)
+            if tr[2]==3:
+                tid2=tr[20] # TTM
+                ind2=P.rdf.IC([tg],P.rdf.ns.cm.Problem,tid2)
+                P.rdf.link_([tg],imsg,msg,[P.rdf.ns.cm.problem],[ind2])
+        elif tr[2]==1: # problema
             ind=P.rdf.IC([tg],P.rdf.ns.cm.Problem,tid)
             if tr[3]=="A": # não tenho
                 uris2=[P.rdf.ns.cm.DontHave]
@@ -47,12 +53,12 @@ def triplificaCaixaMagica(dbname,username,aname="CMData",donated_by="Caixa Mági
             P.rdf.link_([tg],imsg,msg,[P.rdf.ns.cm.problemType],uris2)
             # description
             P.rdf.link([tg],imsg,msg,[P.rdf.ns.cm.description],[tr[4]])
-        if tr[2]==2: # voto
+        elif tr[2]==2: # voto
             ind=P.rdf.IC([tg],P.rdf.ns.cm.Vote,tid)
             tid2=tr[5]
             ind2=P.rdf.IC([tg],P.rdf.ns.cm.Problem,tid2)
             P.rdf.link_([tg],imsg,msg,[P.rdf.ns.cm.problem],[ind2])
-        if tr[2]==3: # solução
+        elif tr[2]==3: # solução
             ind=P.rdf.IC([tg],P.rdf.ns.cm.Solution,tid)
             P.rdf.link([tg],imsg,msg,[P.rdf.ns.cm.description],[tr[4]])
             ind2=P.rdf.IC([tg],P.rdf.ns.cm.Problem,tid2)
